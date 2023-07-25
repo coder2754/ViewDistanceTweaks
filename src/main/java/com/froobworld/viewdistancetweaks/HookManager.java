@@ -64,8 +64,7 @@ public class HookManager {
         viewDistanceTweaks.getLogger().info("Using " + simulationDistanceHook.getClass().getSimpleName() + " for the simulation distance hook.");
 
         viewDistanceHook = PreferenceChooser
-                .bestChoice(PaperViewDistanceHook::new, PaperViewDistanceHook::isCompatible)
-                .nextBestChoice(LegacyPaperViewDistanceHook::new, LegacyPaperViewDistanceHook::isCompatible)
+                .bestChoice(LegacyPaperViewDistanceHook::new, LegacyPaperViewDistanceHook::isCompatible)
                 .nextBestChoice(() -> new SpigotViewDistanceHook(viewDistanceTweaks.getClientViewDistanceManager()), SpigotViewDistanceHook::isCompatible)
                 .get();
         viewDistanceTweaks.getLogger().info(viewDistanceHook != null ?
