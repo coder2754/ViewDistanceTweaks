@@ -32,7 +32,7 @@ public class VdtCommand implements CommandExecutor {
                 return StringUtil.copyPartialMatches(args[0], possibleCompletions, new ArrayList<>());
             }
             if (args.length == 2 && (args[0].equalsIgnoreCase("simulationdistance") || args[0].equalsIgnoreCase("viewdistance"))) {
-                return StringUtil.copyPartialMatches(args[1], IntStream.rangeClosed(2, 32).mapToObj(Integer::toString).collect(Collectors.toSet()), new ArrayList<>());
+                return StringUtil.copyPartialMatches(args[1], IntStream.rangeClosed(2, 1024).mapToObj(Integer::toString).collect(Collectors.toSet()), new ArrayList<>());
             }
             if (args.length > 2 && (args[0].equalsIgnoreCase("simulationdistance") || args[0].equalsIgnoreCase("viewdistance"))) {
                 if (Arrays.stream(args).noneMatch(s -> s.equalsIgnoreCase("--duration"))) {
