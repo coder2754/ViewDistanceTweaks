@@ -42,8 +42,8 @@ public class SetCommand implements CommandExecutor {
         } catch (NumberFormatException e) {
             badViewDistance = true;
         }
-        if (badViewDistance || viewDistance < 2 || viewDistance > 32) {
-            sender.sendMessage(ChatColor.RED + "View distance must be an integer in the range [2,32].");
+        if (badViewDistance || viewDistance < 2 || viewDistance > 1024) {
+            sender.sendMessage(ChatColor.RED + "View distance must be an integer in the range [2,1024].");
             return true;
         }
         Predicate<World> worldPredicate;
