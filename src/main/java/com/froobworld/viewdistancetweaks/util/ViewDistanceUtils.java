@@ -3,7 +3,7 @@ package com.froobworld.viewdistancetweaks.util;
 public final class ViewDistanceUtils {
 
     public static int clampViewDistance(int viewDistance) {
-        return Math.min(32, Math.max(2, viewDistance));
+        return Math.min(1024, Math.max(2, viewDistance));
     }
 
     public static int viewDistanceFromChunkCount(double chunkCount) {
