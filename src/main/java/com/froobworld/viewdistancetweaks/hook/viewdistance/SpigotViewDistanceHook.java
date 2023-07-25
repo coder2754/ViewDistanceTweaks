@@ -25,13 +25,17 @@ public class SpigotViewDistanceHook implements ViewDistanceHook {
     public void setDistance(World world, int value) {
         value = ViewDistanceUtils.clampViewDistance(value);
         for (Player player : world.getPlayers()) {
-            player.setViewDistance(value);
+            player.spigot().setViewDistance(value);
         }
     }
 
     private static void sendUpdatedSimulationDistance(World world, int distance) {
+        Object packet = onClass(NmsUtils.getFullyQualifiedClassName("PacketPlayOutViewDistance", "network.protocol.game")).create(distance).get();
+
         for (Player player : world.getPlayers()) {
-            player.setSimulationDistance(distance);
+            on(player).call("getHandle")
+                    .field("b")
+                    .call("a", packet);
         }
     }
 
