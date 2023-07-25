@@ -7,7 +7,7 @@ group 'com.froobworld'
 version '1.5.6'
 jar.enabled = false;
 
-sourceCompatibility = 1.17
+sourceCompatibility = 1.8
 
 repositories {
     mavenLocal();
@@ -28,7 +28,7 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    compileOnly 'io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT'
+    compileOnly 'com.destroystokyo.paper:paper-api:1.15.2-R0.1-SNAPSHOT'
     compileOnly 'me.clip:placeholderapi:2.10.9'
     compileOnly 'io.netty:netty-all:4.1.74.Final'
     compile 'org.jooq:joor-java-8:0.9.14'
